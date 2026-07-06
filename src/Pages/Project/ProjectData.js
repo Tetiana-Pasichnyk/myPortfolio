@@ -1,6 +1,7 @@
 import project2 from './../../Images/MovieAPI.png'
 import project4 from './../../Images/MealPlan.png'
 import project8 from './../../Images/WunshList.png'
+import projectFlashcard from './../../Images/Frischcard.png'
 
 const projects = [
 	{
@@ -37,12 +38,15 @@ const projects = [
 			'Simple wish list app to add, edit, and remove items with a clean and responsive UI.',
 	},
 	{
-		isPlaceholder: true,
-		borderColor: '#6c757d',
-		buttonColor: '#6c757d',
-		name: 'New Project',
-		title: 'Coming soon',
-		description: 'A new project will be added here soon.',
+		image: projectFlashcard,
+		borderColor: '#81d8f7',
+		link: 'https://flashcard-buddy-starter.netlify.app/',
+		githubLink: 'https://github.com/Tetiana-Pasichnyk/flashcard_buddy_starter',
+		buttonColor: '#81d8f7',
+		name: 'Flashcard Buddy',
+		title: 'JavaScript / Vite',
+		description:
+			'Flashcard app for creating and studying cards with flip interactions and a clean responsive UI.',
 	},
 	{
 		isPlaceholder: true,
