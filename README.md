@@ -22,7 +22,7 @@ You do not need to clone the repository to your computer to make changes.
 
 ### Option 2: Edit directly on GitHub
 
-1. Open a file on [github.com/tetiana-pasichnyk/myportfolio](https://github.com/tetiana-pasichnyk/myportfolio).
+1. Open a file on [github.com/Tetiana-Pasichnyk/myPortfolio](https://github.com/Tetiana-Pasichnyk/myPortfolio).
 2. Click the pencil icon (**Edit**).
 3. Save and **Commit changes**.
 
@@ -33,7 +33,7 @@ Good for small edits; less convenient for larger changes.
 **Requirements:** Node.js and npm installed on your machine.
 
 ```bash
-git clone https://github.com/tetiana-pasichnyk/myportfolio.git
+git clone https://github.com/Tetiana-Pasichnyk/myPortfolio.git
 cd myportfolio
 npm install
 npm start
@@ -75,4 +75,4 @@ Contributions are welcome! Please open an issue or submit a pull request if you 
 
 ## Repository
 
-https://github.com/tetiana-pasichnyk/myportfolio
+https://github.com/Tetiana-Pasichnyk/myPortfolio
