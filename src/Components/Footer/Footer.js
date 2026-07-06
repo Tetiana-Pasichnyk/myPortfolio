@@ -22,7 +22,7 @@ const MyFooter = () => {
 								<img src='./github.png' alt='' />
 							</a>
 							<a
-								href='https://www.linkedin.com/'
+								href='https://www.linkedin.com/in/tetiana-pasichnyk-570b931ab/'
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='LinkedIn profile'
