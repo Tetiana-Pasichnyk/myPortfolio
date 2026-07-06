@@ -8,35 +8,32 @@ const Diplom = () => {
 	const { id, image } = data[item]
 
 	const nextImage = () => {
-		setItem((item) => {
-			item++
-			if (item > data.length - 1) {
-				item = 0
-			}
-
-			return item
-		})
+		setItem((current) => (current + 1) % data.length)
 	}
 
-	const previosImage = () => {
-		setItem((item) => {
-			item--
-			if (item < 0) {
-				return data.length - 1
-			}
-
-			return item
-		})
+	const previousImage = () => {
+		setItem((current) => (current - 1 + data.length) % data.length)
 	}
 
 	return (
 		<div className={style.container}>
 			<img src={image} height='400px' alt={`Diploma ${id}`} />
-			<GrCaretPrevious
+			<button
+				type='button'
 				className={style.btnPrev}
-				onClick={previosImage}
-			></GrCaretPrevious>
-			<GrCaretNext className={style.btnNext} onClick={nextImage}></GrCaretNext>
+				onClick={previousImage}
+				aria-label='Previous diploma'
+			>
+				<GrCaretPrevious aria-hidden='true' />
+			</button>
+			<button
+				type='button'
+				className={style.btnNext}
+				onClick={nextImage}
+				aria-label='Next diploma'
+			>
+				<GrCaretNext aria-hidden='true' />
+			</button>
 		</div>
 	)
 }

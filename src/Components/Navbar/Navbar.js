@@ -7,7 +7,7 @@ const MyNavbar = () => {
 	return (
 		<Navbar expand='md' className='bg-dark' variant='dark' fixed='top'>
 			<Container fluid>
-				<Navbar.Brand bsPrefix='home' href='#'>
+				<Navbar.Brand as={NavLink} to='/' bsPrefix='home'>
 					<img
 						src='./logo.png'
 						width='25'

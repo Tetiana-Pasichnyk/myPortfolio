@@ -17,7 +17,7 @@ const ProjectCard = ({ image, borderColor, id, link, buttonColor, title }) => {
 			>
 				<img
 					src={image}
-					alt={`Проект ${id + 1}`}
+					alt={`Project ${id + 1}: ${title}`}
 					style={{
 						position: 'absolute',
 						top: '0',
@@ -40,7 +40,7 @@ const ProjectCard = ({ image, borderColor, id, link, buttonColor, title }) => {
 					rel='noopener noreferrer'
 					style={{ backgroundColor: buttonColor }}
 				>
-					Go to Webseit
+					Go to Website
 				</a>
 			</div>
 		</div>

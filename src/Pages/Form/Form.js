@@ -29,7 +29,9 @@ function ContactForm() {
 						</p>
 						<p>
 							<img alt='EmailIcon' width='20px' src={iconEmail} />
-							pasichnyktetiana.de@gmail.com
+							<a href='mailto:pasichnyktetiana.de@gmail.com'>
+								pasichnyktetiana.de@gmail.com
+							</a>
 						</p>
 					</div>
 				</div>
@@ -50,7 +52,7 @@ function ContactForm() {
 								field='email'
 								errors={state.errors}
 							/>
-							<label htmlFor='email'>Your message</label>
+							<label htmlFor='message'>Your message</label>
 							<textarea id='message' name='message' />
 							<ValidationError
 								prefix='Message'

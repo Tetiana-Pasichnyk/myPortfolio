@@ -5,7 +5,7 @@ import style from './Project.module.css'
 function MyProject() {
 	return (
 		<div className={style.projectContainer}>
-			<ProjectContainer />;
+			<ProjectContainer />
 		</div>
 	)
 }

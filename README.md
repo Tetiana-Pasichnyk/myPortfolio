@@ -21,7 +21,7 @@ This is a React-based portfolio website showcasing the skills, projects, and con
 * Install dependencies using npm or yarn.
     npm install or yarn install
 * Run the application.
-    npm start or yarn install
+    npm start or yarn start
 
 
 ## Folder Structure

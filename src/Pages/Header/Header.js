@@ -29,6 +29,9 @@ const MyHeader = () => {
 		<div className='header'>
 			<div className='header-container'>
 				<h1 className='header__title' ref={titleRef}>
+					<span className='visually-hidden'>
+						Hi, I'm Tetiana, web developer!
+					</span>
 					<span aria-hidden='true' className='letter margin'>
 						H
 					</span>
