@@ -14,7 +14,7 @@ const MyFooter = () => {
 					<ul className='social'>
 						<li className='social__item'>
 							<a
-								href='https://github.com/Tanyaru7'
+								href='https://github.com/Tetiana-Pasichnyk'
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='GitHub profile'

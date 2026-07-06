@@ -8,7 +8,7 @@ function ContactForm() {
 	const [state, handleSubmit] = useForm('xnqylqya')
 
 	return (
-		<>
+		<section className={style.contactPage}>
 			<div className={style.header}>
 				<h1>CONTACT ME</h1>
 				<p>
@@ -72,7 +72,7 @@ function ContactForm() {
 					)}
 				</form>
 			</div>
-		</>
+		</section>
 	)
 }
 
