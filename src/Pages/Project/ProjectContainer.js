@@ -11,10 +11,13 @@ function ProjectContainer() {
 					<ProjectCard
 						image={project.image}
 						borderColor={project.borderColor}
-						id={id}
 						link={project.link}
+						githubLink={project.githubLink}
 						buttonColor={project.buttonColor}
+						name={project.name}
 						title={project.title}
+						description={project.description}
+						isPlaceholder={project.isPlaceholder}
 					/>
 				</div>
 			))}

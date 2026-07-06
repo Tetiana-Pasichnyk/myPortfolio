@@ -1,47 +1,64 @@
 import React from 'react'
 import style from './ProjectCard.module.css'
 
-const ProjectCard = ({ image, borderColor, id, link, buttonColor, title }) => {
+const ProjectCard = ({
+	image,
+	borderColor,
+	link,
+	githubLink,
+	buttonColor,
+	name,
+	title,
+	description,
+	isPlaceholder = false,
+}) => {
 	return (
 		<div
-			className={style.card}
-			style={{
-				borderBottom: `3px solid ${borderColor}`,
-				padding: '10px',
-				margin: '10px',
-				maxWidth: '300px',
-			}}
+			className={`${style.card} ${isPlaceholder ? style.placeholder : ''}`}
+			style={{ borderBottom: `3px solid ${borderColor}` }}
 		>
-			<div
-				style={{ position: 'relative', width: '100%', paddingBottom: '75%' }}
-			>
-				<img
-					src={image}
-					alt={`Project ${id + 1}: ${title}`}
-					style={{
-						position: 'absolute',
-						top: '0',
-						left: '0',
-						width: '100%',
-						height: '100%',
-						objectFit: 'cover',
-					}}
-				/>
+			<div className={style.imageWrapper}>
+				{isPlaceholder ? (
+					<div className={style.placeholderImage}>
+						<span>Coming soon</span>
+					</div>
+				) : (
+					<img src={image} alt={`${name}: ${title}`} className={style.image} />
+				)}
 			</div>
-			<br />
-			<div>
-				<p>{title}</p>
-			</div>
-			<div>
-				<a
-					className={style.linkButton}
-					href={link}
-					target='_blank'
-					rel='noopener noreferrer'
-					style={{ backgroundColor: buttonColor }}
-				>
-					Go to Website
-				</a>
+			<div className={style.content}>
+				<h3 className={style.name}>{name}</h3>
+				<p className={style.tag}>{title}</p>
+				<p className={style.description}>{description}</p>
+				<div className={style.buttonGroup}>
+					{isPlaceholder ? (
+						<>
+							<span className={style.disabledButton}>Go to Website</span>
+							<span className={style.disabledButtonOutline}>GitHub</span>
+						</>
+					) : (
+						<>
+							<a
+								className={style.linkButton}
+								href={link}
+								target='_blank'
+								rel='noopener noreferrer'
+								style={{ backgroundColor: buttonColor }}
+							>
+								Go to Website
+							</a>
+							<a
+								className={style.githubButton}
+								href={githubLink}
+								target='_blank'
+								rel='noopener noreferrer'
+								style={{ borderColor: buttonColor, color: buttonColor }}
+							>
+								GitHub
+							</a>
+						</>
+					)}
+				</div>
 			</div>
 		</div>
 	)
