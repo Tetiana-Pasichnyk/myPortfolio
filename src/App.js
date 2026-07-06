@@ -8,14 +8,16 @@ import ContactForm from './Pages/Form/Form'
 
 function App() {
 	return (
-		<div>
+		<div className='app'>
 			<Router>
 				<MyNavbar />
-				<Routes>
-					<Route path='/' element={<MyHome />} />
-					<Route path='/portfolio' element={<MyProject />} />
-					<Route path='/contact' element={<ContactForm />} />
-				</Routes>
+				<main className='main'>
+					<Routes>
+						<Route path='/' element={<MyHome />} />
+						<Route path='/portfolio' element={<MyProject />} />
+						<Route path='/contact' element={<ContactForm />} />
+					</Routes>
+				</main>
 				<MyFooter />
 			</Router>
 		</div>
