@@ -1,11 +1,10 @@
 import Diplom from './Diplom'
 import Program from './Program'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import style from './Skills.module.css'
 
 const Skills = () => {
 	return (
-		<div>
+		<section className={style.skillsSection}>
 			<div className={style.header}>
 				<h2>Skills</h2>
 			</div>
@@ -13,7 +12,7 @@ const Skills = () => {
 				<Diplom />
 				<Program />
 			</div>
-		</div>
+		</section>
 	)
 }
 

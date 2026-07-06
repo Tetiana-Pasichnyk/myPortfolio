@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400&display=swap');
+
+.skillsSection {
+	background-color: var(--bg-dark);
+	color: #fff;
+	padding-bottom: 40px;
+}
 
 .container {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	gap: 24px;
 	padding: 20px;
 	margin-bottom: 60px;
 }
@@ -12,31 +19,61 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
-	text-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff,
-		0 0 60px #2db2ff;
 }
 
 .header h2 {
-	font-size: 4rem;
+	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1.4;
-	opacity: 1;
 	font-family: 'Poppins', sans-serif;
+	text-shadow: var(--neon-text-shadow);
+	color: #fff;
 }
-.test {
+
+.program {
 	margin-top: 40px;
 	margin-left: 20px;
 }
 
-.test li {
+.programList {
+	margin: 0;
+	padding: 0;
+}
+
+.programItem + .programItem {
+	margin-top: 32px;
+}
+
+.programItem {
 	list-style-type: none;
 	font-size: 20px;
 }
 
-.test h3 {
-	list-style-type: none;
+.programItem h3 {
 	font-family: 'Poppins', sans-serif;
+	margin-bottom: 8px;
 }
-.test p {
+
+.programItem p {
 	font-size: 20px;
+	margin-bottom: 12px;
+}
+
+.iconGroup {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+@media (min-width: 501px) {
+	.header h2 {
+		font-size: 3rem;
+	}
+}
+
+@media (min-width: 801px) {
+	.header h2 {
+		font-size: 4rem;
+	}
 }

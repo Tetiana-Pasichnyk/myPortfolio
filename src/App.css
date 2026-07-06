@@ -1,3 +1,10 @@
+:root {
+	--accent: #2db2ff;
+	--bg-dark: #1d1d1d;
+	--neon-text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent),
+		0 0 30px var(--accent), 0 0 60px var(--accent);
+}
+
 body {
 	margin: 0;
 	padding: 0;

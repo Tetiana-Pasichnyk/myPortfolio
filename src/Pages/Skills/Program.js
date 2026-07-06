@@ -1,28 +1,37 @@
 import style from './Skills.module.css'
 
+const technologies = [
+	{ src: './html.png', alt: 'HTML5' },
+	{ src: './css.png', alt: 'CSS3' },
+	{ src: './react.png', alt: 'React' },
+	{ src: './node.png', alt: 'Node.js' },
+	{ src: './redux.png', alt: 'Redux' },
+	{ src: './bootstrap.png', alt: 'Bootstrap' },
+	{ src: './figma.png', alt: 'Figma' },
+	{ src: './github.png', alt: 'GitHub' },
+]
+
 const Program = () => {
 	return (
-		<div className={style.test}>
-			<ul>
-				<li>
+		<div className={style.program}>
+			<ul className={style.programList}>
+				<li className={style.programItem}>
 					<h3>Programming Languages:</h3>
-					<p>Javascript</p>
-					<img src='./javascript.png' alt='icons JS' />
+					<p>JavaScript</p>
+					<div className={style.iconGroup}>
+						<img src='./javascript.png' alt='JavaScript' />
+					</div>
 				</li>
-				<br />
-				<li>
+				<li className={style.programItem}>
 					<h3>Web Technologies:</h3>
 					<p>
-						HTML5, CSS3, React.js, Node.js, Redux.js, Bootstrap-5, Figma, Github
+						HTML5, CSS3, React.js, Node.js, Redux.js, Bootstrap-5, Figma, GitHub
 					</p>
-					<img src='./html.png' alt='icons html' />
-					<img src='./css.png' alt='icons CSS' />
-					<img src='./react.png' alt='icons react' />
-					<img src='./node.png' alt='icons node js' />
-					<img src='./redux.png' alt='icons redux' />
-					<img src='./bootstrap.png' alt='icons bootstrap' />
-					<img src='./figma.png' alt='icons figma' />
-					<img src='./github.png' alt='icons github' />
+					<div className={style.iconGroup}>
+						{technologies.map(({ src, alt }) => (
+							<img key={alt} src={src} alt={alt} />
+						))}
+					</div>
 				</li>
 			</ul>
 		</div>

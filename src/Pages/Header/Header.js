@@ -2,26 +2,64 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import './Header.css'
 
+const TITLE_LINES = ['Hi,', "I'm Tetiana,", 'web developer!']
+
+const INTRO_PARAGRAPHS = [
+	'I am an expert in front-end development.',
+	'I create easy-to-use websites with different functionality.',
+	'I specialize in building applications specific to the business needs of my clients.',
+]
+
 const MyHeader = () => {
 	const titleRef = useRef(null)
+	const textRef = useRef(null)
 
 	useEffect(() => {
-		const title = titleRef.current
+		const letters = titleRef.current?.querySelectorAll('[data-letter]')
+		const paragraphs = textRef.current?.querySelectorAll('p')
 
-		if (title) {
-			const letters = Array.from(title.children)
+		if (!letters?.length) return undefined
 
-			gsap.fromTo(
-				letters,
-				{ opacity: 0, y: 20 },
+		const prefersReducedMotion = window.matchMedia(
+			'(prefers-reduced-motion: reduce)'
+		).matches
+
+		if (prefersReducedMotion) {
+			gsap.set([...letters, ...(paragraphs || [])], { opacity: 1, y: 0 })
+			return undefined
+		}
+
+		const timeline = gsap.timeline()
+
+		timeline.fromTo(
+			letters,
+			{ opacity: 0, y: 20 },
+			{
+				opacity: 1,
+				y: 0,
+				duration: 0.6,
+				stagger: 0.04,
+				ease: 'power2.out',
+			}
+		)
+
+		if (paragraphs?.length) {
+			timeline.fromTo(
+				paragraphs,
+				{ opacity: 0, y: 12 },
 				{
 					opacity: 1,
 					y: 0,
-					duration: 1,
-					stagger: 0.1,
-					ease: 'power.in',
-				}
+					duration: 0.5,
+					stagger: 0.12,
+					ease: 'power2.out',
+				},
+				'-=0.15'
 			)
+		}
+
+		return () => {
+			timeline.kill()
 		}
 	}, [])
 
@@ -32,97 +70,27 @@ const MyHeader = () => {
 					<span className='visually-hidden'>
 						Hi, I'm Tetiana, web developer!
 					</span>
-					<span aria-hidden='true' className='letter margin'>
-						H
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						i
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						,
-					</span>
-					<br />
-					<span aria-hidden='true' className='letter margin'>
-						I
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						’
-					</span>
-					<span aria-hidden='true' className='letter m'>
-						m
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						T
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						e
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						t
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						i
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						a
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						n
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						a
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						,
-					</span>
-					<br />
-					<span aria-hidden='true' className='letter margin'>
-						w
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						e
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						b &nbsp;
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						d
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						e
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						v
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						e
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						l
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						o
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						p
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						e
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						r
-					</span>
-					<span aria-hidden='true' className='letter margin'>
-						!
-					</span>
+					{TITLE_LINES.map((line, lineIndex) => (
+						<React.Fragment key={line}>
+							<span className='title-line' aria-hidden='true'>
+								{line.split('').map((char, charIndex) => (
+									<span
+										key={`${lineIndex}-${charIndex}`}
+										className='letter'
+										data-letter
+									>
+										{char === ' ' ? '\u00a0' : char}
+									</span>
+								))}
+							</span>
+							{lineIndex < TITLE_LINES.length - 1 && <br aria-hidden='true' />}
+						</React.Fragment>
+					))}
 				</h1>
-				<div className='header-text'>
-					<p>I am an expert in front-end development.</p>
-					<p>I create easy-to-use websites with different functionality.</p>
-					<p>
-						I specialize in building applications specific to the business needs
-						of my clients.
-					</p>
+				<div className='header-text' ref={textRef}>
+					{INTRO_PARAGRAPHS.map((paragraph) => (
+						<p key={paragraph}>{paragraph}</p>
+					))}
 				</div>
 			</div>
 		</div>
